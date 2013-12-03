@@ -4,19 +4,13 @@ class Raindrops {
   PVector vel;
   float s;
   int d;
-  float score;
+
 
   Raindrops() {
     loc=new PVector(random(width), random(-height/2, 0));
     vel=new PVector(random(-.1, .1), random(1, 3));
     acc=new PVector(0, random(0, 1));
     s= random(1, 6);
-    d=10;
-    score=0;
-  }
-
-  void show () {
-
     if (s>=1 && s<2) {
       d=5;
     }
@@ -32,6 +26,9 @@ class Raindrops {
     if (s>=5) {
       d=10;
     }
+  }
+
+  void show () {
     ellipse(loc.x, loc.y, d, d);
   }
 
@@ -50,10 +47,14 @@ class Raindrops {
     }
   }
 
-  void catchit(Catcher c) {
+  boolean catchit(Catcher c) {
     if (loc.dist(c.cloc) <d/2 + c.dh/2) {
       loc.set(random(width), random(-height/2, 0));
+      return true;
     }
-  }
+    else {
+      return false;
+    }
+  
 }
-
+}
