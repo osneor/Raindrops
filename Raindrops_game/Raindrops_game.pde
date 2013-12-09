@@ -26,6 +26,12 @@ void draw() {
   rect(450, 100, 100, 100);
   strokeWeight(1);
 
+
+  textSize(20);
+  text("JAIL", 450, 100);
+  textSize(50);
+
+
   textSize(50);
   text(score, 50, 50);
 
