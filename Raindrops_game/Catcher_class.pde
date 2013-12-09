@@ -5,7 +5,7 @@ class Catcher {
 
   Catcher() {
     dl=80;
-    dh=10;
+    dh=20;
    cloc=new PVector();
     
   } 
