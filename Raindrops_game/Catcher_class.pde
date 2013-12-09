@@ -4,7 +4,7 @@ class Catcher {
   PVector cmouse;
 
   Catcher() {
-    dl=60;
+    dl=80;
     dh=10;
    cloc=new PVector();
     
