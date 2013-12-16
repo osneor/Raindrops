@@ -9,6 +9,8 @@ int index = 0;
 int currenttime;
 int oldtime=0;
 int timediff=0;
+int droptime=2200;
+int mostdropped=2;
 
 //declare catcher and variable for score
 Catcher c1;
@@ -70,9 +72,12 @@ void draw() {
     currenttime=millis();
     timediff=currenttime - oldtime;
 
-    if (timediff >= 2200) {
-      //index is the number of raindrops being created. one is created every 2.2 seconds when index increases
-      index++;
+    if (timediff >= droptime) {
+      //index is the number of raindrops being created. one is created every "droptime" seconds when index increases
+      index+=round(random(1,mostdropped));
+      //less time until next drop
+       droptime-=20; 
+
       //resets timer to the current time (difference of 0) if the timediff = 2.2 seconds
       oldtime=currenttime;
     }
@@ -85,6 +90,7 @@ void draw() {
       drop[i].show();
       drop[i].move();
       drop[i].comeback();
+      drop[i].loss();
 
       //every time a raindrop is caught (using the boolean catchin in the raindrops class), 
       //the score goes up the size of the raindrop (s)
@@ -108,6 +114,7 @@ void draw() {
       }
       if (score>=50 && drop[i].acc.y>0) {
         drop[i].acc.add(0, .5, 0);
+        mostdropped=3;
       }
       if (score>=75 && drop[i].acc.y>0) {
         drop[i].acc.add(0, .5, 0);

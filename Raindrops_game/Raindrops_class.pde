@@ -6,6 +6,8 @@ class Raindrops {
   float s;
   int d;
 
+  //losing
+  int loss=3;
 
   Raindrops() {
     //we want the drops to appear at varying times, so we give some a longer distance to fall  (random(-height/2, 0))
@@ -54,8 +56,8 @@ class Raindrops {
     }
   }
 
-//this is where the magic happens. the catcher class is given a variable c to stand in.
-//if there is an overlap between the catcher and a drop, the location is set to somewhere in the jail and it stops moving.
+  //this is where the magic happens. the catcher class is given a variable c to stand in.
+  //if there is an overlap between the catcher and a drop, the location is set to somewhere in the jail and it stops moving.
   boolean catchit(Catcher c) {
     if (loc.dist(c.cloc) <d/2 + c.dh/2) {
       loc.set(random(450+d, 550-d), random(100+d, 200-d));
@@ -65,6 +67,18 @@ class Raindrops {
     }
     else {
       return false;
+    }
+  }
+
+  void loss() {
+      if(loss==3){
+      rect(520,50,20,20);
+    }
+    if (loc.y==height) {
+    loss-=1;
+//    if(loss==2){
+//      
+//    }
     }
   }
 }
