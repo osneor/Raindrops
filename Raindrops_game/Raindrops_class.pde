@@ -6,8 +6,7 @@ class Raindrops {
   float s;
   int d;
 
-  //losing
-  int loss=3;
+
 
   Raindrops() {
     //we want the drops to appear at varying times, so we give some a longer distance to fall  (random(-height/2, 0))
@@ -71,14 +70,35 @@ class Raindrops {
   }
 
   void loss() {
-      if(loss==3){
-      rect(520,50,20,20);
+    if (loss==3) {  
+      fill(255);
+      rect(500, 50, 20, 20);
+      rect(530, 50, 20, 20);
+      rect(560, 50, 20, 20);
+      fill(255, 150);
     }
-    if (loc.y==height) {
-    loss-=1;
-//    if(loss==2){
-//      
-//    }
+
+    if (loc.y>=height) {
+      loss+=-1;
+      comeback();
+    }
+
+    if (loss==2) {
+      fill(255);
+      rect(530, 50, 20, 20);
+      rect(560, 50, 20, 20);
+      fill(255, 150);
+    }
+    else if (loss==1) {
+      fill(255);
+      rect(560, 50, 20, 20);
+      fill(255, 150);
+    }
+    else if (loss==0) {
+      textAlign(CENTER);
+      text("YOU LOSE, BITCH. ", width/2, height/2);
+      vel.set(0, 0);
+      acc.set(0, 0);
     }
   }
 }

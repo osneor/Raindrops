@@ -4,6 +4,9 @@ Raindrops[] drop = new Raindrops[200];
 //start screen
 boolean start;
 
+//losing
+ int loss=3;
+ 
 //declare variables for timer functions
 int index = 0;
 int currenttime;
@@ -30,6 +33,7 @@ void setup() {
 }
 
 void draw() {
+  println(loss);
   if (start==false) {
     stroke(255);
     strokeWeight(5);
@@ -89,7 +93,7 @@ void draw() {
     for (int i = 0; i <= index; i++) {
       drop[i].show();
       drop[i].move();
-      drop[i].comeback();
+//      drop[i].comeback();
       drop[i].loss();
 
       //every time a raindrop is caught (using the boolean catchin in the raindrops class), 
