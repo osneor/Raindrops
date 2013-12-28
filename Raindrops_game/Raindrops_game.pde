@@ -125,6 +125,7 @@ void draw() {
 
       //if you get a score of 100, you win, it tells you so, and everything stops moving
       if (score>=100) {
+        timediff=0;
         textAlign(CENTER);
         text("YOU WIN ", width/2, height/2);
         drop[i].vel.set(0, 0);
