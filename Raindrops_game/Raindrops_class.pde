@@ -69,7 +69,9 @@ class Raindrops {
     }
   }
 
+  //mechanism for counting lives and losing
   void loss() {
+    //when you have 3 lives (you start with 3 lives) 
     if (loss==3) {  
       fill(255);
       rect(500, 50, 20, 20);
@@ -78,11 +80,13 @@ class Raindrops {
       fill(255, 150);
     }
 
+    //every time a drop goes to the end of the screen, the variable loss decreases by 1
     if (loc.y>=height) {
       loss+=-1;
       comeback();
     }
 
+    //each of these describes the condition of the lives each time loss decreases
     if (loss==2) {
       fill(255);
       rect(530, 50, 20, 20);
@@ -94,6 +98,8 @@ class Raindrops {
       rect(560, 50, 20, 20);
       fill(255, 150);
     }
+
+    //displays "loss" screen
     else if (loss==0) {
       textAlign(CENTER);
       text("YOU LOSE, BITCH. ", width/2, height/2);
