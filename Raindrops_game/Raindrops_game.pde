@@ -4,7 +4,7 @@ Raindrops[] drop = new Raindrops[200];
 //start screen
 boolean start;
 
-//losing
+//losing (this variable starts at 3 and decreases. it is used in the raindrops class but it is decared here so that it is global)
  int loss=3;
  
 //declare variables for timer functions
@@ -33,7 +33,6 @@ void setup() {
 }
 
 void draw() {
-  println(loss);
   if (start==false) {
     stroke(255);
     strokeWeight(5);
@@ -135,6 +134,7 @@ void draw() {
   }
 }
 
+//pressing the mouse on the "start" screen starts the game
 void mousePressed() {
   start=true;
 }
