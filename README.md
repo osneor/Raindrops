@@ -11,3 +11,7 @@ Information about the game
 * The value of each raindrop correlates to its diameter. Larger size = larger value
 * You win if you reach a score of 100
 * You lose if you allow 3 raindrops to touch the bottom of the screen
+
+
+Possible Bugs
+* When the drops are moving quickly or are among the smaller drops, they can sometimes (rarely) go through the catcher
